@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>{{ quiz.name }}</h1>
+<p>Спасибо, что прошли викторину</p>
+    <h4>Количество вопросов <span class="badge badge-info">{{ quiz.get_questions_count }}</span></h4>
+    <h4>Максимальное количество баллов <span class="badge badge-info">{{ quiz.get_questions_cost.cost__sum}}</span></h4>
+    <h4>Ваш результат <span class="badge badge-info">{{ cost.cost__sum }}</span></h4>
+
+    <a href="{% url 'active_quizzes' %}">Дальше</a>
+{% endblock %}

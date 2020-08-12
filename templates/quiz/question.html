@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>{{ quiz.name }}</h1>
+<p>{{ question.text }}</p>
+<form method="post">
+{% for answer in question.answers.all %}
+        <p><input type="radio" name="answer" value="{{ answer.id }}"> {{ answer.anstext }}</p>
+{% endfor %}
+<input type="submit">
+{% csrf_token %}
+</form><p></p>
+    <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Участник</th>
+      <th scope="col">Ответов</th>
+      <th scope="col">Баллов</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for gamer in gamers %}
+        <tr>
+        <td>{{ gamer.user__username }}</td>
+        <td>{{ gamer.count }}</td>
+        <td>{{ gamer.cost }}</td>
+        </tr>
+    {% endfor %}
+  </tbody></table>
+    </div>
+{% endblock %}

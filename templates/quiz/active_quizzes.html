@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+{% for active_quizz in  active_quizzes %}
+
+    <div class="jumbotron">
+  <h1 class="display-4">{{ active_quizz.name }}</h1>
+  <a class="btn btn-primary btn-lg" href="{% url 'quiz_url' active_quizz.id %}" role="button">Перейти</a>
+</div>
+{% endfor %}
+{% endblock %}

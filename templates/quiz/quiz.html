@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block body %}
+
+<h1>{{ quiz.name }}</h1>
+    <h4>Количество вопросов <span class="badge badge-info">{{ quiz.get_questions_count }}</span></h4>
+    <h4>Максимальное количество баллов <span class="badge badge-info">{{ quiz.get_questions_cost.cost__sum}}</span></h4>
+<a class="btn btn-primary" href="{% url 'question_url' quiz.id first_question.id %}">Начать</a>
+{% endblock %}
