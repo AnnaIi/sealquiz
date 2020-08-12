@@ -36,7 +36,7 @@ class QuestionView(View):
         answer = get_object_or_404(Answer, pk=answer_id, question=question)
         result, created = UserAnswer.objects.get_or_create(user=request.user,
                                                            question=question,
-                                                           answer=answer, defaults={'is_true': answer.is_true,
+                                                           defaults={'answer': answer,'is_true': answer.is_true,
                                                                                     'cost': question.cost if answer.is_true else 0})
         next_question = question.next_question()
 
