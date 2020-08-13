@@ -61,3 +61,9 @@ class UserAnswer(models.Model):
     def get_gamers(quiz_id):
         return UserAnswer.objects.filter(question__quiz_id=quiz_id).values('user__username').order_by('user__username').annotate(
             count=Count('user'), cost=Sum('cost'))
+
+    @staticmethod
+    def get_quizzes(user):
+        return UserAnswer.objects.filter(user=user).values('question__quiz__name').order_by(
+            'question__quiz__name').annotate(
+            count=Count('question__quiz'), cost=Sum('cost'))

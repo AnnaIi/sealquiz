@@ -53,3 +53,11 @@ class QuizEndView(View):
         cost = UserAnswer.get_cost_user_result(request.user, quiz.id)
         return render(request, 'quiz/end.html',
                       {'quiz': quiz, 'cost': cost})
+
+
+class MyStatView(View):
+    def get(self, request):
+        quizzes = UserAnswer.get_quizzes(request.user)
+        return render(request, 'quiz/statistic.html',
+                      {'quizzes':quizzes})
+
