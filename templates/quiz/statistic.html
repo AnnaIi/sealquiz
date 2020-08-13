@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+    <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Викторина</th>
+      <th scope="col">Ответов</th>
+      <th scope="col">Баллов</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for quiz in quizzes %}
+        <tr>
+        <td>{{ quiz.question__quiz__name }}</td>
+        <td>{{ quiz.count }}</td>
+        <td>{{ quiz.cost }}</td>
+        </tr>
+    {% endfor %}
+  </tbody></table>
+    </div>
+{% endblock %}
